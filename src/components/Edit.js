@@ -34,4 +34,4 @@ const mapDispatchToProps = (dispatch, props) => ({
   removeExpense: (data) => dispatch(removeExpense(data))
 });
 
-export default connect(mapStateToProps)(Edit);
+export default connect(mapStateToProps, mapDispatchToProps)(Edit);
