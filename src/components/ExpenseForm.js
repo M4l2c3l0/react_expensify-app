@@ -4,7 +4,6 @@ import 'react-dates/initialize';
 import { SingleDatePicker } from 'react-dates';
 
 const date = moment();
-console.log(date.format("Do MMM, YYYY"));
 
 export default class Expenseform extends React.Component {
   constructor(props) {
@@ -75,11 +74,13 @@ export default class Expenseform extends React.Component {
             onChange={this.onAmountChange}
           />
           <SingleDatePicker
+            startDateId="singleDateStart"
+            endDateId="singleDateEnd"
+            id="singleDateId"
             date={this.state.createdAt}
             onDateChange={this.onDateChange}
             focused={this.state.focused}
             onFocusChange={this.onFocusChange}
-            id="singleDayCalendar"
             numberOfMonths={1}
             isOutsideRange={() => false}
           />
