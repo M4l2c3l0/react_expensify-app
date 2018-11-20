@@ -1,0 +1,26 @@
+.button {
+  background: $blue;
+  border: none;
+  color: #fff;
+  display: inline-block;
+  font-size: $large-font;
+  font-weight: 300;
+  line-height: 1;
+  padding: $s-size;
+  text-decoration: none;
+}
+
+.button--link {
+  background: none;
+}
+
+.button--secondary {
+  background: transparent;
+  border: 1px solid #ec5252;
+  color: #ec5252;
+  transition: background .3s ease;
+  &:hover {
+    background: #ec5252;
+    color: #fff;
+  }
+}

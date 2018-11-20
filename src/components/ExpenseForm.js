@@ -2,6 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import 'react-dates/initialize';
 import { SingleDatePicker } from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
 
 const date = moment();
 
@@ -57,41 +58,45 @@ export default class Expenseform extends React.Component {
   }
   render() {
     return (
-      <div>
-        {this.state.error && <p>{this.state.error}</p>}
-        <form onSubmit={this.onSubmit}>
-          <input
-            type="text"
-            placeholder="Description"
-            value={this.state.description}
-            onChange={this.onDescriptionChange}
-            autoFocus 
-          />
-          <input
-            type="text"
-            placeholder="Amount"
-            value={this.state.amount}
-            onChange={this.onAmountChange}
-          />
-          <SingleDatePicker
-            startDateId="singleDateStart"
-            endDateId="singleDateEnd"
-            id="singleDateId"
-            date={this.state.createdAt}
-            onDateChange={this.onDateChange}
-            focused={this.state.focused}
-            onFocusChange={this.onFocusChange}
-            numberOfMonths={1}
-            isOutsideRange={() => false}
-          />
-          <textarea
-            placeholder="Notes (optional)..."
-            value={this.state.notes}
-            onChange={this.onNotesChange}
-          ></textarea>
-          <button>Add</button>
-        </form>
-      </div>
+      <form onSubmit={this.onSubmit}>
+        {this.state.error && <p className="form__error">{this.state.error}</p>}
+        <input
+          className="text-input"
+          type="text"
+          placeholder="Description"
+          value={this.state.description}
+          onChange={this.onDescriptionChange}
+          autoFocus 
+        />
+        <input
+          className="text-input"
+          type="text"
+          placeholder="Amount"
+          value={this.state.amount}
+          onChange={this.onAmountChange}
+        />
+        <SingleDatePicker
+          startDateId="singleDateStart"
+          endDateId="singleDateEnd"
+          id="singleDateId"
+          date={this.state.createdAt}
+          onDateChange={this.onDateChange}
+          focused={this.state.focused}
+          onFocusChange={this.onFocusChange}
+          numberOfMonths={1}
+          isOutsideRange={() => false}
+          block
+        />
+        <textarea
+          className="textarea"
+          placeholder="Notes (optional)..."
+          value={this.state.notes}
+          onChange={this.onNotesChange}
+        ></textarea>
+        <div>
+          <button className="button">Add</button>
+        </div>
+      </form>
     );
   };
 };
